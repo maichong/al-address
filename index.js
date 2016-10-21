@@ -15,7 +15,8 @@ export default class Address extends wx.Component {
     list: array,
     onItemEdit: func,
     onItemDelete: func,
-    onItemAdd: func
+    onItemAdd: func,
+    onItemTap: func
   };
 
   data = {
@@ -26,9 +27,24 @@ export default class Address extends wx.Component {
     listItems: new wx.List(AddressItem, 'list', {
       item: '>>',
       onEdit: '#handleItemEdit',
-      onDelete: '#handleItemDelete'
+      onDelete: '#handleItemDelete',
+      onTap: '#handleItemTap'
     })
   };
+
+  handleItemTap(component) {
+    let id = this.data.list[component.key].id;
+    if (this.props.onItemTap) {
+      this.props.onItemTap(id);
+    }
+    let list = [];
+    this.data.list.forEach((item) => {
+      let temp = item.asMutable();
+      temp.checked = item.id === id;
+      list.push(immutable(temp));
+    });
+    this.setData({ list });
+  }
 
   handleItemEdit(component) {
     console.log('al address edit');
@@ -41,14 +57,22 @@ export default class Address extends wx.Component {
     let id = this.data.list[component.key].id;
     this.props.onItemDelete(id);
   }
-  
+
   handleAddTap() {
     this.props.onItemAdd();
   }
 
   onUpdate(props) {
-    let list = immutable(props.list);
-    console.log('al address list ==',props.list);
+    let list = [];
+    props.list.forEach((item) => {
+      item.checked = false;
+      this.data.list.forEach((temp) => {
+        if (item.id === temp.id) {
+          item.checked = temp.checked;
+        }
+      });
+      list.push(immutable(item));
+    });
     this.setData({ list });
   }
 
