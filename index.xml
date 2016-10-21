@@ -1,0 +1,13 @@
+<view>
+  <scroll-view scroll-y="true" class="address-scroll-view">
+    <view>
+      <image class="address-header-image" src="/image/address_header.png"/>
+    </view>
+    <list key="listItems" name="al-address-item"/>
+  </scroll-view>
+  <view class="address-btn-block" catchtap="handleAddTap">
+    <view class="address-btn-view">
+      <input class="address-btn-text" disabled="false" value="+ 新建地址"/>
+    </view>
+  </view>
+</view>

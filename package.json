@@ -1,0 +1,24 @@
+{
+  "name": "al-address",
+  "version": "0.1.0",
+  "description": "AL address",
+  "keywords": [
+    "alaska",
+    "labrador"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maichong/al-address.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maichong/al-address/issues"
+  },
+  "homepage": "https://github.com/maichong/al-address#readme",
+  "author": {
+    "email": "li@maichong.it",
+    "name": "li",
+    "url": "https://github.com/maichonglyd"
+  }
+}
