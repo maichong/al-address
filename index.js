@@ -71,6 +71,9 @@ export default class Address extends wx.Component {
           item.checked = temp.checked;
         }
       });
+      if (item.often && this.data.list.length <= 0) {
+        item.checked = true;
+      }
       list.push(immutable(item));
     });
     this.setData({ list });
