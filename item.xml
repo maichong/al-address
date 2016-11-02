@@ -1,0 +1,28 @@
+<view class="{{item.checked?'al-address-item':''}}" catchtap="handleTap" catchlongtap="handleLongTap">
+  <view class="al-address-item-block" style="{{item.checked?'margin-left:0.7rem':'margin-left:1rem'}}">
+    <view class="address-item-name-block inline-block align-top overflow-hidden">
+      <view>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="address-item-default"  style="display:{{item.often?'block':'none'}}">
+        <input class="address-item-default-text center" disabled="false" value="默认"/>
+      </view>
+    </view>
+    <view class="address-item-detail-block inline-block">
+      <view class="address-item-tel-view align-top">
+        <text>{{item.tel}}</text>
+      </view>
+      <view class="address-item-address-view">
+        <text>{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
+      </view>
+    </view>
+    <view class="address-item-edit-btn-block align-middle">
+      <view catchtap="handleEditTap">
+        <image class="address-item-btn-view" src="/image/address_edit.png"/>
+      </view>
+    </view>
+  </view>
+</view>
+<modal hidden="{{modalHidden}}" catchconfirm="handleConfirm" catchcancel="handleCancel">
+  <view class="address-item-modal-view center">确定要删除？</view>
+</modal>

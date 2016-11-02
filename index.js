@@ -6,7 +6,7 @@
 
 import wx from 'labrador';
 import immutable from 'seamless-immutable';
-import AddressItem from 'al-address-item';
+import AddressItem from './item';
 
 const { array, func } = wx.PropTypes;
 
